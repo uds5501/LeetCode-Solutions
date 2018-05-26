@@ -13,3 +13,4 @@ class Solution(object):
                 memory.append(n)
                 
         return True
+
