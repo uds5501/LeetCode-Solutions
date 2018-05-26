@@ -1,0 +1,20 @@
+class Solution(object):
+    def climbStairs(self, n):
+        """
+        :type n: int
+        :rtype: int
+        """
+        if (n==0):  return 0
+        if (n==1):  return 1
+        if (n==2):  return 2
+        
+        one_step_b4=2
+        two_step_b4=1
+        total_ways=0
+        
+        for i in range(2,n):
+            total_ways=one_step_b4+two_step_b4
+            two_step_b4=one_step_b4
+            one_step_b4=total_ways
+        
+        return(total_ways)
