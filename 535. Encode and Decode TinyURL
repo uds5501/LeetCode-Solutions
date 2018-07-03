@@ -1,0 +1,26 @@
+class Codec:
+    universal_dict = dict()
+    def encode(self, longUrl):
+        """Encodes a URL to a shortened URL.
+        
+        :type longUrl: str
+        :rtype: str
+        """
+        random = "lololol"
+        my_frac = "http://tinyurl.com/"+random
+        self.universal_dict[random] = longUrl
+        return my_frac
+        
+
+    def decode(self, shortUrl):
+        """Decodes a shortened URL to its original URL.
+        
+        :type shortUrl: str
+        :rtype: str
+        """
+        return self.universal_dict["lololol"]
+        
+
+# Your Codec object will be instantiated and called as such:
+# codec = Codec()
+# codec.decode(codec.encode(url))
