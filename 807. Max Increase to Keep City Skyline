@@ -1,0 +1,27 @@
+class Solution(object):
+    def maxIncreaseKeepingSkyline(self, grid):
+        """
+        :type grid: List[List[int]]
+        :rtype: int
+        """
+        sum = 0
+
+        N = len(grid)
+        topView = []
+        sideView = []
+
+        for i in range(N):
+            temp = [grid[k][i] for k in range(N)]
+            topView.append(max(temp))
+
+        print topView
+
+        for i in grid:
+            sideView.append(max(i))
+
+        print sideView
+
+        for i in range(N):
+            for j in range(N):
+                sum += min(topView[i], sideView[j]) - grid[i][j]
+        return sum
