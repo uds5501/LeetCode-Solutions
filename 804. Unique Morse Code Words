@@ -1,0 +1,22 @@
+class Solution(object):
+    def uniqueMorseRepresentations(self, words):
+        """
+        :type words: List[str]
+        :rtype: int
+        """
+        
+        main_dict = {'a': '.-', 'c': '-.-.', 'b': '-...', 'e': '.', 'd': '-..', 'g': '--.', 'f': '..-.', 'i': '..', 'h': '....', 'k': '-.-', 'j': '.---', 'm': '--', 'l': '.-..', 'o': '---', 'n': '-.', 'q': '--.-', 'p': '.--.', 's': '...', 'r': '.-.', 'u': '..-', 't': '-', 'w': '.--', 'v': '...-', 'y': '-.--', 'x': '-..-', 'z': '--..'}
+        main = ""
+        temp_list = []
+        for word in words:
+            for letter in word:
+                main += main_dict[letter]
+            temp_list.append(main)
+            main = ""
+                
+        main_list = []
+        for i in temp_list:
+            if i not in main_list:
+                main_list.append(i)
+        return len(main_list)
+                
