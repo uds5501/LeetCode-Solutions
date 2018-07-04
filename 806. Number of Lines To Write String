@@ -1,0 +1,23 @@
+class Solution(object):
+    def numberOfLines(self, widths, S):
+        """
+        :type widths: List[int]
+        :type S: str
+        :rtype: List[int]
+        """
+        
+        
+        linesUsed = 0
+        lengthUsed = 0
+        for i in S:
+            alphaWidth = widths[ord(i) - ord('a')]
+            
+            if lengthUsed + alphaWidth <= 100:
+                lengthUsed = lengthUsed + alphaWidth
+            else:
+                linesUsed = linesUsed + 1
+                
+                lengthUsed = alphaWidth
+            remember = lengthUsed
+            #print  "Length used after adding "+ str(i)+ " is "+ str(lengthUsed)
+        return [linesUsed+1, remember]
