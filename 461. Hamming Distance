@@ -1,0 +1,14 @@
+class Solution(object):
+    def hammingDistance(self, x, y):
+        """
+        :type x: int
+        :type y: int
+        :rtype: int
+        """
+        sum = 0
+        xList = list('{0:032b}'.format(x))
+        yList = list('{0:032b}'.format(y))
+        for i in range(len(xList)):
+            if xList[i] != yList[i]:
+                sum += 1
+        return sum
