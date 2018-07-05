@@ -1,0 +1,27 @@
+class Solution(object):
+    def findWords(self, words):
+        """
+        :type words: List[str]
+        :rtype: List[str]
+        """
+        top = ['q','w','e','r','t','y','u','i','o','p']
+        mid = ['a','s','d', 'f', 'g', 'h', 'j', 'k', 'l']
+        bot = ['z','x','c', 'v', 'b', 'n', 'm']
+        
+        ans = []
+        for word in words:
+            tt = False
+            mt = False
+            bt = False
+            for letter in word: 
+                if letter.lower() in top:
+                    tt = True
+                elif letter.lower() in mid:
+                    mt = True
+                else :
+                    bt = True
+            lier = [tt,bt,mt]
+            if lier.count(True) == 1:
+                ans.append(word)
+                
+        return ans
