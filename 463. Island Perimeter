@@ -1,0 +1,33 @@
+class Solution(object):
+    def islandPerimeter(self, grid):
+        """
+        :type grid: List[List[int]]
+        :rtype: int
+        """
+        # ADDING BORDER FOR THE ISLAND. HELPS IN BORDER ADJUSTMENT!
+        for a in grid:
+            a.append(0)
+        for a in grid:
+            a.insert(0,0)
+        tmp = (len(grid[0]))*[0]
+        grid.insert(0,tmp)
+        grid.append(tmp)
+        
+        peri = 0
+        for i in range(1, len(grid)-1):
+            for j in range(1, len(grid[0])-1):
+                # For each cell : Check left , right, top and bottom
+                if grid[i][j] == 1:
+                    if grid[i-1][j] == 0:
+                        peri += 1 
+                    if grid[i+1][j] == 0:
+                        peri += 1 
+                    if grid[i][j+1] == 0:
+                        peri += 1 
+                    if grid[i][j+1] == 0:
+                        peri += 1 
+                    
+                
+        return peri
+        
+ 
