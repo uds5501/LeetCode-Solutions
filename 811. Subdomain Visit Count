@@ -1,0 +1,20 @@
+class Solution(object):
+    def subdomainVisits(self, cpdomains):
+        """
+        :type cpdomains: List[str]
+        :rtype: List[str]
+        """
+        from collections import defaultdict
+
+        domain_visits = defaultdict(int)
+
+        for cpdomain in cpdomains:
+            num_visits, domain = cpdomain.split(' ')
+            num_visits = int(num_visits)
+
+            split_domain = domain.split('.')
+            for i in range(len(split_domain)):
+                sub_domain = '.'.join(split_domain[i:])
+                domain_visits[sub_domain] += num_visits
+
+        return [str(num_visits) + ' ' + domain for domain, num_visits in domain_visits.items()]
