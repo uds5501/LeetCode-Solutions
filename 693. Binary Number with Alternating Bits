@@ -1,0 +1,13 @@
+class Solution(object):
+    def hasAlternatingBits(self, n):
+        """
+        :type n: int
+        :rtype: bool
+        """
+        s = bin(n).replace("0b", "")
+        #print s
+        for i in range(1, len(s)):
+            
+            if s[i-1]+s[i] != '01' and s[i-1]+s[i] != '10':
+                return False
+        return True
