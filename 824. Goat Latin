@@ -1,0 +1,15 @@
+class Solution(object):
+    def toGoatLatin(self, S):
+        """
+        :type S: str
+        :rtype: str
+        """
+        new = ""
+        S = S.split()
+        for i in range(len(S)):
+            if S[i][0].lower() in ['a','e','i','o','u']:
+                new += S[i] + "ma"
+                new = new + "a"*(i+1) + " "
+            else:
+                new += S[i][1:]+S[i][0] + "ma" + "a"*(i+1) + " "
+        return new.strip()
