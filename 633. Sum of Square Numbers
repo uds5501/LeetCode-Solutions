@@ -1,0 +1,10 @@
+import math
+class Solution(object):
+    def judgeSquareSum(self, c):
+        """
+        :type c: int
+        :rtype: bool
+        """
+        
+        return any(True for a in range(int(math.sqrt(c)) + 1) if math.sqrt(float(c - a * a)).is_integer())
+
