@@ -1,16 +1,12 @@
 class Solution(object):
     def isHappy(self, n):
-        """
-        :type n: int
-        :rtype: bool
-        """
-        memory=[]
+        new=[]
         while (n!=1):
-            n=sum([int(i)**2 for i in str(n)])
-            if n in memory:
+            n=sum([int(x)**2 for x in str(n)])
+            if n in new:
                 return False
             else:
-                memory.append(n)
+                new.append(n)
                 
         return True
-
+        
