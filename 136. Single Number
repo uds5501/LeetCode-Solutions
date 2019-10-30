@@ -4,7 +4,8 @@ class Solution(object):
         :type nums: List[int]
         :rtype: int
         """
-        ind = 0
-        for i in nums:
-            ind = ind ^ i
-        return ind
+        res=0
+        for x in nums:
+            res=res^x
+        return res
+        
