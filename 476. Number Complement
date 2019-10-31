@@ -1,16 +1,8 @@
-class Solution(object):
-    def findComplement(self, num):
-        """
-        :type num: int
-        :rtype: int
-        """
-        myBin = []
-        
-        for i in bin(num).replace("0b", ""):
-            if i =='1':
-                myBin.append('0')
-            else: myBin.append('1')
-        
-        
-        c = ''.join(myBin)
-        return int(c, 2)
+class Solution {
+    public int findComplement(int n) {
+        double z=Math.log(n)/Math.log(2);
+        if(z==(int)z)return n-1;
+        int k=(int)(Math.pow(2,Math.ceil(z))-1);
+        return n^k;
+    }
+}
