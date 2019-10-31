@@ -1,12 +1,7 @@
-class Solution(object):
-    def addDigits(self, num):
-        """
-        :type num: int
-        :rtype: int
-        """
-        if num/10 == 0:
-            return num
-        ans = sum([int(i) for i in str(num)])
-        while ans/10 != 0:
-            ans = sum([int(i) for i in str(ans)])
-        return ans
+class Solution {
+    public int addDigits(int num) {
+        if(num==0)return 0;
+       if(num%9!=0) return (num%9); 
+       else return 9;
+    }
+}
