@@ -1,0 +1,49 @@
+class Solution {
+public:
+    int minOperationsMaxProfit(vector<int>& cust, int bc, int rc) {
+        int rem = 0;
+        long long cur = 0;
+        long long maxi = INT_MIN;
+        int ans = 0;
+        int x = 0;
+        long long take;
+        int n=0;
+        vector<pair<long long, int>> tmp;
+        for(int i=0; i<cust.size(); i++) {
+            rem += cust[i];
+            take = min(4, rem);
+            cur += take*bc - rc;
+            rem -= take;
+            ans++;
+            if (cur > maxi) {
+                x = ans;
+                maxi = cur;
+            }
+            // tmp.push_back({cur, ans});
+            n++;
+        }
+        // cout << "REM after rot: "  << rem << endl;
+        while (rem) {
+            take = min(4, rem);
+            cur += take*bc - rc;
+            ans++;
+            if (cur > maxi) {
+                x = ans;
+                maxi = cur;
+            }
+            // tmp.push_back({cur, ans});
+            rem -= take;
+            if (cur > maxi) {maxi = cur;}
+            n++;
+        }
+        if (maxi < 0) return -1;
+        int p = n-1;
+        // sort(tmp.begin(), tmp.end());
+        // while(tmp[p].first == maxi) {
+        //     ans = tmp[p].second;
+        //     p--;
+        // }
+        return x;
+        
+    }
+};
