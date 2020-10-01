@@ -1,0 +1,22 @@
+class Solution {
+public:
+    bool wordBreak(string s, vector<string>& wordDict) {
+        map<string, bool> dict;
+        int n = s.size();
+        int m = 0;
+        for( auto i: wordDict) {dict[i] = true; m = max(m, (int)i.size());}
+        // bool dp[n+1];
+        vector<bool> dp(n+1, false);
+        for(int i=1; i<=n; i++) {
+            if ( i<= m && dict[s.substr(0, i)]) dp[i] = true;
+            if (dp[i]) {
+                // cout << "base: " << s.substr(0, i) << endl;
+                for(int j=0; j<=m && (i+j) <= n; j++) {
+                    // cout << "checking : " << s.substr(i, j) << endl;
+                    if (dict[s.substr(i, j)]) dp[i+j] = true;
+                }
+            }
+        }
+        return dp.back();
+    }
+};
