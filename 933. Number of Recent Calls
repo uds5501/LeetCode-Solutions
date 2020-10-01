@@ -1,0 +1,16 @@
+class RecentCounter:
+
+    def __init__(self):
+        self.arr = []
+        self.ctr = 0
+
+    def ping(self, t: int) -> int:
+        self.ctr += 1
+        self.arr.append(t)
+        c = bisect_left(self.arr, self.arr[-1]-3000)
+        return self.ctr-c
+
+
+# Your RecentCounter object will be instantiated and called as such:
+# obj = RecentCounter()
+# param_1 = obj.ping(t)
